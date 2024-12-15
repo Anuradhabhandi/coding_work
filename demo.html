@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expandable Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.menu {
+  width: 800px;
+}
+
+.menu-item {
+  border: 2px solid black;
+  margin: 5px 0;
+  position: relative;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: orange;
+  background: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-button:after {
+  content: "▼";
+  font-size: 12px;
+  color: black;
+}
+
+.menu-content {
+  display: none;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-top: 1px solid black;
+}
+
+</style>
+<body>
+  <div class="menu">
+    <div class="menu-item">
+      <button class="menu-button" onclick="toggleContent('appetizers-content')">APPETIZERS</button>
+      <div id="appetizers-content" class="menu-content">
+        <p>Content for Appetizers...</p>
+      </div>
+    </div>
+    <div class="menu-item">
+      <button class="menu-button" onclick="toggleContent('bbq-content')">BARBECUE ENTREES</button>
+      <div id="bbq-content" class="menu-content">
+        <p>Content for Barbecue Entrees...</p>
+      </div>
+    </div>
+    <div class="menu-item">
+      <button class="menu-button" onclick="toggleContent('rice-content')">RICE ENTREES</button>
+      <div id="rice-content" class="menu-content">
+        <p>Content for Rice Entrees...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    function toggleContent(contentId) {
+  const content = document.getElementById(contentId);
+  // Toggle the visibility of the content
+  if (content.style.display === "none" || content.style.display === "") {
+    content.style.display = "block";
+  } else {
+    content.style.display = "none";
+  }
+}
+
+  </script>
+</body>
+</html>
